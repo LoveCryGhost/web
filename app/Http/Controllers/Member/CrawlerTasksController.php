@@ -68,11 +68,14 @@ class CrawlerTasksController extends MemberCoreController
         foreach ($crawlerTasks as $crawlerTask){
             $crawlerTask->updated_at = null;
             $crawlerTask->save();
-            $crawlerTask->crawlerItems()->update(array('updated_at' => null));
+
+            $crawlerItems = $crawlerTask->crawlerItems()->get();
+            foreach ($crawlerItems as $crawlerItem){
+                $crawlerItem->updated_at = null;
+                $crawlerItem->save();
+            }
+
         }
-
-
-
         return redirect()->route('member.crawlertask.index');
     }
 }

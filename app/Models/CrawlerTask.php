@@ -44,7 +44,7 @@ class CrawlerTask extends Model
     }
 
     public function crawlerItems(){
-        return $this->belongsToMany(crawlerItem::class, 'ctasks_items','ct_id','ci_id')
+        return $this->belongsToMany(CrawlerItem::class, 'ctasks_items','ct_id','ci_id')
             ->withPivot(['sort_order']);
     }
 }

@@ -28,9 +28,7 @@
             line-height: 1;
         }
 
-        .dark-sidebar .sidebar a{
-            color: black;
-        }
+       
 
         .btn {
             font-size: 0.7rem;
@@ -50,7 +48,7 @@
 
         a.llv-active {
             z-index: 2;
-            background-color: #f5f5f5;
+            background-color: green;
             color: black;
         }
 

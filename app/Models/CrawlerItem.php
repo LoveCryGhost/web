@@ -40,6 +40,6 @@ class CrawlerItem extends CoreModel
 
     public function crawlerTask()
     {
-        return $this->belongsToMany(crawlerItem::class, 'ctasks_items','ci_id','ct_id');
+        return $this->belongsToMany(CrawlerItem::class, 'ctasks_items','ci_id','ct_id');
     }
 }

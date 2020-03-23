@@ -42,11 +42,13 @@ class SupplierGroupsController extends MemberCoreController
 
     public function edit(SupplierGroup $supplierGroup)
     {
+        $this->authorize('update', $supplierGroup);
         return view(config('theme.member.view').'supplierGroup.edit', compact('supplierGroup'));
     }
 
     public function update(SupplierGroupRequest $request, SupplierGroup $supplierGroup)
     {
+        $this->authorize('update', $supplierGroup);
         $data = $request->all();
         $toast = $this->supplierGroupService->update($supplierGroup, $data);
         return redirect()->route('member.supplierGroup.index')->with('toast',  parent::$toast_update);
@@ -55,6 +57,7 @@ class SupplierGroupsController extends MemberCoreController
 
     public function destroy(Request $request, SupplierGroup $supplierGroup)
     {
+        $this->authorize('destroy', $supplierGroup);
         $data = $request;
         $toast = $this->supplierGroupService->destroy($supplierGroup, $data);
         return redirect()->route('member.supplierGroup.index')->with('toast',  parent::$toast_destroy);

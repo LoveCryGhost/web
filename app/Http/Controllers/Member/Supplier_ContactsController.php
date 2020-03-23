@@ -53,8 +53,10 @@ class Supplier_ContactsController extends MemberCoreController
         ];
     }
 
-    public function edit(Request $request, SupplierContact $supplierContact){
+    public function edit(Request $request, SupplierContact $supplierContact)
+    {
 
+        $this->authorize('update', $supplierContact);
         $data = $request->all();
         $supplier= $this->supplier_ContactService->supplierRepo->getById($request->input('s_id'));
         $view = view(config('theme.member.view').'supplier.supplierContact.md-edit', compact('supplier', 'supplierContact'))->render();
@@ -72,6 +74,7 @@ class Supplier_ContactsController extends MemberCoreController
 
     public function update(Supplier_ContactRequest $request, SupplierContact $supplierContact)
     {
+        $this->authorize('update', $supplierContact);
         $data = $request->all();
         $TF = $this->supplier_ContactService->update($supplierContact, $data);
         return [
@@ -88,6 +91,7 @@ class Supplier_ContactsController extends MemberCoreController
 
     public function destroy(Request $request, SupplierContact $supplierContact)
     {
+        $this->authorize('destroy', $supplierContact);
         $data = $request->all();
         $TF = $this->supplier_ContactService->destroy($supplierContact, $data);
         return [

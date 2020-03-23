@@ -45,21 +45,23 @@ class SuppliersController extends MemberCoreController
 
     public function edit(Supplier $supplier)
     {
+        $this->authorize('update', $supplier);
         $supplierGroups= $this->supplierGroupService->supplierGroupRepo->builder()->all();
         return view(config('theme.member.view').'supplier.edit', compact('supplier','supplierGroups'));
     }
 
     public function update(SupplierRequest $request, Supplier $supplier)
     {
+        $this->authorize('update', $supplier);
         $data = $request->all();
         $TF = $this->supplierService->update($supplier, $data);
-
         return redirect()->route('member.supplier.index')->with('toast',  parent::$toast_update);
     }
 
 
     public function destroy(Supplier $supplier)
     {
+        $this->authorize('destroy', $supplier);
         $toast = $this->supplierService->destroy($supplier);
         return redirect()->route('member.supplier.index')->with('toast',  parent::$toast_destroy);
     }

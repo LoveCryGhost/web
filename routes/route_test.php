@@ -33,12 +33,12 @@ Route::get('/shopee-crawleritem', function () {
                 $row_items[] = [
                     'itemid' => $item['itemid'],
                     'shopid' => $item['shopid'],
-                    'images' => $item['image'],
                     'sold' => $item['sold'] !== null ? $item['sold'] : 0,
                     'historical_sold' => $item['historical_sold'],
                     'domain_name' => $crawlerTask->domain_name,
                     'local' => $crawlerTask->local,
                     'member_id' => $member_id,
+                    'updated_at' => null
                 ];
 
                 $row_shops[] = [
@@ -57,10 +57,8 @@ Route::get('/shopee-crawleritem', function () {
             $TF = (new MemberCoreRepository())->massUpdate($crawlerItem, $row_items);
 
             //CrawlerTasks sync Items
-            $xx = implode(", ", $items_order);
             $crawlerItem_ids = CrawlerItem::whereInMultiple(['itemid', 'shopid', 'local'], $value_arr)
                 ->pluck('ci_id', 'itemid');
-
             $index=0;
             foreach ($items_order as $itemid){
                 $sync_ids[$crawlerItem_ids[$itemid]]= ['sort_order'=>$index++];
@@ -74,12 +72,18 @@ Route::get('/shopee-crawleritem', function () {
             $crawlerShop = new CrawlerShop();
             $TF = (new MemberCoreRepository())->massUpdate($crawlerShop, $row_shops);
 
-
             dispatch((new CrawlerTaskJob())->onQueue('high'));
-
             dispatch((new CrawlerItemJob())->onQueue('low'));
             dispatch((new CrawlerShopJob())->onQueue('low'));
         }
+        $crawlerTask->updated_at = now();
+        $crawlerTask->save();
     }
 });
 
+Route::get('/shopee-crawleritem-updated-time', function () {
+    $crawlerItem = CrawlerItem::find(1);
+    $crawlerItem->updated_at = null;
+    $crawlerItem->save();
+    dd('ok');
+});

@@ -11,7 +11,7 @@ class SKUObserver extends Observer
 
     public function saving(SKU $sku)
     {
-        if(request()->is_active == 1 or request()->is_active ==true){
+        if(request()->is_active == 1 or request()->is_active ==true or  $sku->is_active == 1){
             $sku->is_active = 1;
         }else{
             $sku->is_active = 0;

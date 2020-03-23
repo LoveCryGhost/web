@@ -12,7 +12,7 @@ class MemberObserver extends Observer
 
     public function saving(Member $member)
     {
-        if(request()->is_active == 1 or request()->is_active ==true){
+        if(request()->is_active == 1 or request()->is_active ==true or $member->is_active == 1){
             $member->is_active = 1;
         }else{
             $member->is_active = 0;

@@ -64,18 +64,21 @@ class CrawlerTasksController extends MemberCoreController
     public function refresh()
     {
         //CrawlerTask
-        $crawlerTasks = CrawlerTask::where('member_id', Auth::guard('member')->user()->id)->get();
-        foreach ($crawlerTasks as $crawlerTask){
-            $crawlerTask->updated_at = null;
-            $crawlerTask->save();
+        $crawlerTasks = CrawlerTask::where('member_id', Auth::guard('member')->user()->id)
+            ->update(['updated_at'=>null]);
 
-            $crawlerItems = $crawlerTask->crawlerItems()->get();
-            foreach ($crawlerItems as $crawlerItem){
-                $crawlerItem->updated_at = null;
-                $crawlerItem->save();
-            }
-
-        }
+        //CrawlerItem 在 Job  中更新
+//        foreach ($crawlerTasks as $crawlerTask){
+//            $crawlerTask->updated_at = null;
+//            $crawlerTask->save();
+//
+//            $crawlerItems = $crawlerTask->crawlerItems()->get();
+//            foreach ($crawlerItems as $crawlerItem){
+//                $crawlerItem->updated_at = null;
+//                $crawlerItem->save();
+//            }
+//
+//        }
         return redirect()->route('member.crawlertask.index');
     }
 }

@@ -35,7 +35,13 @@ class MemberCoreRepository extends Repository {
 
         $values = implode( ',', array_map( function( $row ) {
                 return '('.implode( ',',
-                        array_map( function( $value ) { return '"'.str_replace('"', '""', $value).'"'; } , $row )
+                        array_map( function( $value ) {
+                                if($value===null){
+                                    return "NULL";
+                                }else{
+                                    return '"'.str_replace('"', '""', $value).'"';
+                                }
+                            } , $row )
                     ).')';
             } , $rows )
         );

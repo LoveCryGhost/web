@@ -13,7 +13,7 @@ class StaffObserver extends Observer
 
     public function saving(Staff $staff)
     {
-        if(request()->is_active == 1 or request()->is_active ==true){
+        if(request()->is_active == 1 or request()->is_active ==true or $staff->is_active == 1){
             $staff->is_active = 1;
         }else{
             $staff->is_active = 0;

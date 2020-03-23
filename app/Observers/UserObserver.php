@@ -12,7 +12,7 @@ class UserObserver extends Observer
 
     public function saving(User $user)
     {
-        if(request()->is_active == 1 or request()->is_active ==true){
+        if(request()->is_active == 1 or request()->is_active ==true or $user->is_active == 1){
             $user->is_active = 1;
         }else{
             $user->is_active = 0;

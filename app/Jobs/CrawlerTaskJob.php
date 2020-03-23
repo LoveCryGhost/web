@@ -52,6 +52,7 @@ class CrawlerTaskJob implements ShouldQueue
                         'domain_name' => $crawlerTask->domain_name,
                         'local' => $crawlerTask->local,
                         'member_id' => $member_id,
+                        'updated_at' => null
                     ];
 
                     $row_shops[] = [
@@ -70,10 +71,8 @@ class CrawlerTaskJob implements ShouldQueue
                 $TF = (new MemberCoreRepository())->massUpdate($crawlerItem, $row_items);
 
                 //CrawlerTasks sync Items
-                $xx = implode(", ", $items_order);
                 $crawlerItem_ids = CrawlerItem::whereInMultiple(['itemid', 'shopid', 'local'], $value_arr)
                     ->pluck('ci_id', 'itemid');
-
                 $index=0;
                 foreach ($items_order as $itemid){
                     $sync_ids[$crawlerItem_ids[$itemid]]= ['sort_order'=>$index++];
@@ -88,7 +87,6 @@ class CrawlerTaskJob implements ShouldQueue
                 $TF = (new MemberCoreRepository())->massUpdate($crawlerShop, $row_shops);
 
                 dispatch((new CrawlerTaskJob())->onQueue('high'));
-
                 dispatch((new CrawlerItemJob())->onQueue('low'));
                 dispatch((new CrawlerShopJob())->onQueue('low'));
             }

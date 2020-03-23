@@ -3604,6 +3604,67 @@
         ]
     },
     {
+        "name": "rap2hpoutre/laravel-log-viewer",
+        "version": "v1.4.0",
+        "version_normalized": "1.4.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/rap2hpoutre/laravel-log-viewer.git",
+            "reference": "3506baaddbe5661fc4482b048db2ec5cfc5f9025"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/rap2hpoutre/laravel-log-viewer/zipball/3506baaddbe5661fc4482b048db2ec5cfc5f9025",
+            "reference": "3506baaddbe5661fc4482b048db2ec5cfc5f9025",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/support": "4.2.*|5.*|^6.0|^7.0",
+            "php": ">=5.4.0"
+        },
+        "require-dev": {
+            "orchestra/testbench": "3.7.*",
+            "phpunit/phpunit": "^7"
+        },
+        "time": "2020-03-05T20:25:07+00:00",
+        "type": "laravel-package",
+        "extra": {
+            "laravel": {
+                "providers": [
+                    "Rap2hpoutre\\LaravelLogViewer\\LaravelLogViewerServiceProvider"
+                ]
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "classmap": [
+                "src/controllers"
+            ],
+            "psr-0": {
+                "Rap2hpoutre\\LaravelLogViewer\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "rap2hpoutre",
+                "email": "raphaelht@gmail.com"
+            }
+        ],
+        "description": "A Laravel log reader",
+        "keywords": [
+            "laravel",
+            "log",
+            "log-reader",
+            "log-viewer",
+            "logging",
+            "lumen"
+        ]
+    },
+    {
         "name": "scrivo/highlight.php",
         "version": "v9.18.1.1",
         "version_normalized": "9.18.1.1",
@@ -5954,17 +6015,17 @@
     },
     {
         "name": "vlucas/phpdotenv",
-        "version": "v3.6.0",
-        "version_normalized": "3.6.0.0",
+        "version": "v3.6.1",
+        "version_normalized": "3.6.1.0",
         "source": {
             "type": "git",
             "url": "https://github.com/vlucas/phpdotenv.git",
-            "reference": "1bdf24f065975594f6a117f0f1f6cabf1333b156"
+            "reference": "8f7961f7b9deb3b432452c18093cf16f88205902"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/1bdf24f065975594f6a117f0f1f6cabf1333b156",
-            "reference": "1bdf24f065975594f6a117f0f1f6cabf1333b156",
+            "url": "https://api.github.com/repos/vlucas/phpdotenv/zipball/8f7961f7b9deb3b432452c18093cf16f88205902",
+            "reference": "8f7961f7b9deb3b432452c18093cf16f88205902",
             "shasum": ""
         },
         "require": {
@@ -5973,9 +6034,13 @@
             "symfony/polyfill-ctype": "^1.9"
         },
         "require-dev": {
+            "ext-filter": "*",
             "phpunit/phpunit": "^4.8.35 || ^5.0 || ^6.0 || ^7.0"
         },
-        "time": "2019-09-10T21:37:39+00:00",
+        "suggest": {
+            "ext-filter": "Required to use the boolean validator."
+        },
+        "time": "2020-03-12T13:44:00+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
@@ -6009,6 +6074,12 @@
             "dotenv",
             "env",
             "environment"
+        ],
+        "funding": [
+            {
+                "url": "https://tidelift.com/funding/github/packagist/vlucas/phpdotenv",
+                "type": "tidelift"
+            }
         ]
     },
     {

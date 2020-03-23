@@ -471,6 +471,13 @@ class ComposerStaticInit8229a0072903bc7907b37049d3b1facd
     );
 
     public static $prefixesPsr0 = array (
+        'R' => 
+        array (
+            'Rap2hpoutre\\LaravelLogViewer\\' => 
+            array (
+                0 => __DIR__ . '/..' . '/rap2hpoutre/laravel-log-viewer/src',
+            ),
+        ),
         'M' => 
         array (
             'Mockery' => 
@@ -584,7 +591,6 @@ class ComposerStaticInit8229a0072903bc7907b37049d3b1facd
         'App\\Jobs\\CrawlerItemJob' => __DIR__ . '/../..' . '/app/Jobs/CrawlerItemJob.php',
         'App\\Jobs\\CrawlerShopJob' => __DIR__ . '/../..' . '/app/Jobs/CrawlerShopJob.php',
         'App\\Jobs\\CrawlerTaskJob' => __DIR__ . '/../..' . '/app/Jobs/CrawlerTaskJob.php',
-        'App\\Jobs\\_CrawlerTaskJob' => __DIR__ . '/../..' . '/app/Jobs/_CrawlerTaskJob.php',
         'App\\Listeners\\EmailVerified' => __DIR__ . '/../..' . '/app/Listeners/EmailVerified.php',
         'App\\Listeners\\MemberLoginSuccessfulListener' => __DIR__ . '/../..' . '/app/Listeners/MemberLoginSuccessfulListener.php',
         'App\\Listeners\\ResetPassword' => __DIR__ . '/../..' . '/app/Listeners/ResetPassword.php',
@@ -629,8 +635,16 @@ class ComposerStaticInit8229a0072903bc7907b37049d3b1facd
         'App\\Observers\\TypeObserver' => __DIR__ . '/../..' . '/app/Observers/TypeObserver.php',
         'App\\Observers\\UserObserver' => __DIR__ . '/../..' . '/app/Observers/UserObserver.php',
         'App\\Policies\\AdminPolicy' => __DIR__ . '/../..' . '/app/Policies/AdminPolicy.php',
+        'App\\Policies\\AttributePolicy' => __DIR__ . '/../..' . '/app/Policies/AttributePolicy.php',
+        'App\\Policies\\CrawlerItemPolicy' => __DIR__ . '/../..' . '/app/Policies/CrawlerItemPolicy.php',
+        'App\\Policies\\CrawlerTaskPolicy' => __DIR__ . '/../..' . '/app/Policies/CrawlerTaskPolicy.php',
         'App\\Policies\\MemberPolicy' => __DIR__ . '/../..' . '/app/Policies/MemberPolicy.php',
+        'App\\Policies\\ProductPolicy' => __DIR__ . '/../..' . '/app/Policies/ProductPolicy.php',
         'App\\Policies\\StaffPolicy' => __DIR__ . '/../..' . '/app/Policies/StaffPolicy.php',
+        'App\\Policies\\SupplierContactPolicy' => __DIR__ . '/../..' . '/app/Policies/SupplierContactPolicy.php',
+        'App\\Policies\\SupplierGroupPolicy' => __DIR__ . '/../..' . '/app/Policies/SupplierGroupPolicy.php',
+        'App\\Policies\\SupplierPolicy' => __DIR__ . '/../..' . '/app/Policies/SupplierPolicy.php',
+        'App\\Policies\\TypePolicy' => __DIR__ . '/../..' . '/app/Policies/TypePolicy.php',
         'App\\Policies\\UserPolicy' => __DIR__ . '/../..' . '/app/Policies/UserPolicy.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
@@ -4339,6 +4353,12 @@ class ComposerStaticInit8229a0072903bc7907b37049d3b1facd
         'Ramsey\\Uuid\\UuidFactory' => __DIR__ . '/..' . '/ramsey/uuid/src/UuidFactory.php',
         'Ramsey\\Uuid\\UuidFactoryInterface' => __DIR__ . '/..' . '/ramsey/uuid/src/UuidFactoryInterface.php',
         'Ramsey\\Uuid\\UuidInterface' => __DIR__ . '/..' . '/ramsey/uuid/src/UuidInterface.php',
+        'Rap2hpoutre\\LaravelLogViewer\\BaseController' => __DIR__ . '/..' . '/rap2hpoutre/laravel-log-viewer/src/controllers/LogViewerController.php',
+        'Rap2hpoutre\\LaravelLogViewer\\LaravelLogViewer' => __DIR__ . '/..' . '/rap2hpoutre/laravel-log-viewer/src/Rap2hpoutre/LaravelLogViewer/LaravelLogViewer.php',
+        'Rap2hpoutre\\LaravelLogViewer\\LaravelLogViewerServiceProvider' => __DIR__ . '/..' . '/rap2hpoutre/laravel-log-viewer/src/Rap2hpoutre/LaravelLogViewer/LaravelLogViewerServiceProvider.php',
+        'Rap2hpoutre\\LaravelLogViewer\\Level' => __DIR__ . '/..' . '/rap2hpoutre/laravel-log-viewer/src/Rap2hpoutre/LaravelLogViewer/Level.php',
+        'Rap2hpoutre\\LaravelLogViewer\\LogViewerController' => __DIR__ . '/..' . '/rap2hpoutre/laravel-log-viewer/src/controllers/LogViewerController.php',
+        'Rap2hpoutre\\LaravelLogViewer\\Pattern' => __DIR__ . '/..' . '/rap2hpoutre/laravel-log-viewer/src/Rap2hpoutre/LaravelLogViewer/Pattern.php',
         'SebastianBergmann\\CodeCoverage\\CodeCoverage' => __DIR__ . '/..' . '/phpunit/php-code-coverage/src/CodeCoverage.php',
         'SebastianBergmann\\CodeCoverage\\CoveredCodeNotExecutedException' => __DIR__ . '/..' . '/phpunit/php-code-coverage/src/Exception/CoveredCodeNotExecutedException.php',
         'SebastianBergmann\\CodeCoverage\\Driver\\Driver' => __DIR__ . '/..' . '/phpunit/php-code-coverage/src/Driver/Driver.php',

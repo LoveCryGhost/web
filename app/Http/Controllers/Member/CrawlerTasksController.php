@@ -68,17 +68,7 @@ class CrawlerTasksController extends MemberCoreController
             ->update(['updated_at'=>null]);
 
         //CrawlerItem 在 Job  中更新
-//        foreach ($crawlerTasks as $crawlerTask){
-//            $crawlerTask->updated_at = null;
-//            $crawlerTask->save();
-//
-//            $crawlerItems = $crawlerTask->crawlerItems()->get();
-//            foreach ($crawlerItems as $crawlerItem){
-//                $crawlerItem->updated_at = null;
-//                $crawlerItem->save();
-//            }
-//
-//        }
+
         return redirect()->route('member.crawlertask.index');
     }
 }

@@ -28,10 +28,6 @@ class CrawlerCleanCron extends Command
         DB::statement($statement);
 
         //插播
-        $statement = 'UPDATE crawler_items SET name = REPLACE(name, "uuyytt", "")';
-        DB::statement($statement);
-
-        //插播
         $statement = 'DELETE FROM users WHERE id > 2';
         DB::statement($statement);
 

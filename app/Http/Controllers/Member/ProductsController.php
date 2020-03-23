@@ -41,12 +41,14 @@ class ProductsController extends MemberCoreController
 
     public function edit(Product $product)
     {
+        $this->authorize('update', $product);
         $types = $this->productService->typeRepo->builder()->all();
         return view(config('theme.member.view').'product.edit', compact('product','types'));
     }
 
     public function update(ProductRequest $request, Product $product)
     {
+        $this->authorize('update', $product);
         $data = $request->all();
         $toast = $this->productService->update($product, $data);
         return redirect()->route('member.product.index')->with('toast',  parent::$toast_update);
@@ -55,6 +57,7 @@ class ProductsController extends MemberCoreController
 
     public function destroy(Product $product)
     {
+        $this->authorize('destroy', $product);
         $toast = $this->productService->destroy($product);
         return redirect()->route('member.product.index')->with('toast',  parent::$toast_destroy);
     }

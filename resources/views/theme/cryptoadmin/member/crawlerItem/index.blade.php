@@ -77,7 +77,8 @@
                                 <div class="media-heading item-div pull-up">
                                     <div class="row">
                                         <div class="col-md-1">
-                                            [{{($crawlerItems->currentPage()-1)*($crawlerItems->perPage()) + $loop->iteration}}]
+                                            [{{($crawlerItems->currentPage()-1)*($crawlerItems->perPage()) + $loop->iteration}}]<br>
+                                            <div class="font-size-40 text-right">{{$crawlerItem->pivot->sort_order+1}}</div>
                                         </div>
                                         <div class="col-md-1">
                                             @if(request()->is_active==0)

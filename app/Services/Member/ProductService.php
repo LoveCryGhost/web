@@ -5,6 +5,7 @@ namespace App\Services\Member;
 use App\Models\Product;
 use App\Repositories\Member\ProductRepository;
 use App\Repositories\Member\TypeRepository;
+use Illuminate\Support\Facades\Auth;
 
 class ProductService extends MemberCoreService implements MemberServiceInterface
 {
@@ -20,6 +21,7 @@ class ProductService extends MemberCoreService implements MemberServiceInterface
     public function index()
     {
         return $this->productRepo->builder()
+            ->where('member_id', Auth::guard('member')->user()->id)
             ->with(['Type', 'ProductThumbnails', 'member'])->paginate(10);
     }
 

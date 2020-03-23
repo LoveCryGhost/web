@@ -68,7 +68,7 @@ class CrawlerItemJob implements ShouldQueue
             }
 
             //重新指派任務
-            dispatch((new CrawlerItemJob())->onQueue('high'));
+            dispatch((new CrawlerItemJob())->onQueue('low'));
         }
     }
 

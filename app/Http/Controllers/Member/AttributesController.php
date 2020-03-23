@@ -40,6 +40,7 @@ class AttributesController extends MemberCoreController
 
     public function edit(Attribute $attribute)
     {
+        $this->authorize('update', $attribute);
         return view(config('theme.member.view').'attribute.edit', compact('attribute'));
     }
 
@@ -53,6 +54,7 @@ class AttributesController extends MemberCoreController
 
     public function destroy(Request $request, Attribute $attribute)
     {
+        $this->authorize('destroy', $attribute);
         $data = $request->all();
         $toast = $this->attributeService->destroy($attribute, $data);
         return redirect()->route('member.attribute.index')->with('toast', parent::$toast_destroy);

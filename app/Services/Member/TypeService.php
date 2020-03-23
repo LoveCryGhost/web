@@ -4,6 +4,7 @@ namespace App\Services\Member;
 
 use App\Repositories\Member\AttributeRepository;
 use App\Repositories\Member\TypeRepository;
+use Illuminate\Support\Facades\Auth;
 
 class TypeService extends MemberCoreService implements MemberServiceInterface
 {
@@ -18,7 +19,8 @@ class TypeService extends MemberCoreService implements MemberServiceInterface
 
     public function index()
     {
-        return $this->typeRepo->builder()->with(['member'])->paginate(10);
+        return $this->typeRepo->builder()
+            ->with(['member'])->paginate(10);
     }
 
     public function create()

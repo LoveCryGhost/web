@@ -42,12 +42,14 @@ class TypesController extends MemberCoreController
 
     public function edit(Type $type)
     {
+        $this->authorize('update', $type);
         $attributes = $this->typeService->attributeRepo->builder()->all();
         return view(config('theme.member.view').'type.edit', compact('type', 'attributes'));
     }
 
     public function update(TypeRequest $request, Type $type)
     {
+        $this->authorize('update', $type);
         $data = $request->all();
         $TF = $this->typeService->update($type, $data);
 
@@ -59,6 +61,7 @@ class TypesController extends MemberCoreController
 
     public function destroy(Request $request, Type $type)
     {
+        $this->authorize('destroy', $type);
         $data = $request->all();
         $toast = $this->typeService->destroy($type, $data);
         return redirect()->route('member.type.index')->with('toast', parent::$toast_destroy);
